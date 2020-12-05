@@ -1,0 +1,15 @@
+[package]
+name = "day1"
+version = "0.1.0"
+authors = ["Amar1729 <amar.paul16@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "calc"
+crate-type = ["cdylib"]
+
+[dependencies.pyo3]
+version = "0.12.4"
+features = ["extension-module"]
