@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 extern crate pyo3;
 
 use pyo3::prelude::*;
@@ -5,8 +7,20 @@ use pyo3::wrap_pyfunction;
 
 #[pyfunction]
 fn calculate(nums: Vec<i32>) -> PyResult<i32> {
-    let sum = nums.iter().sum();
-    Ok(sum)
+    let mut freqs = HashSet::new();
+
+    freqs.insert(0);
+
+    let mut c = 0;
+    loop {
+        for i in &nums {
+            c += i;
+            if freqs.contains(&c) {
+                return Ok(c);
+            }
+            freqs.insert(c);
+        }
+    }
 }
 
 #[pymodule]
