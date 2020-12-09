@@ -11,7 +11,8 @@ def main():
 
     # do necessary data parsing here?
     content = _content.strip().split("\n")
-    result = calc.calculate(content)
+    # result = calc.calculate(content)
+    result = calc.p2(content)
     print(result)
 
 
